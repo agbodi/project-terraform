@@ -84,8 +84,13 @@ data "aws_vpc" "jango" {
   default = true
 }
 
-data "aws_default_security_group" "jango" {
-  vpc_id = ${data.aws_vpc.jango.id}
+data "aws_security_group" "jango" {
+  id = ${data.aws_vpc.jango.id}
+}
+
+data "aws_security_group" "jango" {
+  name   = "default"
+  vpc_id = data.aws_vpc.jango.id
 }
 #
 #
