@@ -99,7 +99,7 @@ data "aws_subnet" "jango" {
 
 
 output "aws_security_group" "jango" {
-  value = "${data.aws_security_group.jango.security_group_id}"
+  name = "${data.aws_security_group.jango.security_group_id}"
 }
 
 #module "instance" {
