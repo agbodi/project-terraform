@@ -1,6 +1,6 @@
 name: "Terraform Deployment"
 on:  
-  # Manual trigger
+  ## Manual trigger
   workflow_dispatch:
   push:
     paths:
