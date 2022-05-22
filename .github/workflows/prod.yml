@@ -1,10 +1,15 @@
 name: "Terraform Deployment"
 on:  
- push:
-    branches: [ main ]
+  # Manual trigger
+  workflow_dispatch:
+  push:
+    paths:
+      - '*/**'
   pull_request:
     branches: [ main ]
-
+defaults:
+  run:
+    shell: bash
 jobs:
   terraform_test:
     name: Test Run
