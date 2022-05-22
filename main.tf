@@ -100,6 +100,10 @@ data "aws_security_group" "jango" {
 
 data "aws_subnet" "jango" {
   vpc_id = data.aws_vpc.jango.id
+  filter {
+    name   = "tag:Name"
+    values = ["default-1"]
+  }
 }
 
 
@@ -109,7 +113,7 @@ module "instance" {
   instance_type               = var.instance_type
   vpc_id                      = "${data.aws_vpc.jango.id}"
   security_groups             = [data.aws_security_group.jango.id]
-  subnet                      = "${data.aws_subnet.jango.id[0]}"
+  subnet                      = "${data.aws_subnet.jango.id}"
   name                        = "Hello World"
   ami                         = "${data.aws_ami.jango.id}"
   ami_owner                   = "587719168126"
