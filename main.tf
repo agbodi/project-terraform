@@ -107,7 +107,7 @@ module "instance" {
   source = "cloudposse/ec2-instance/aws"
   instance_type               = var.instance_type
   vpc_id                      = "${data.aws_vpc.jango.id}"
-  security_groups             = "var.security_group_id"
+  security_groups             = ["var.security_group_id"]
   subnet                      = "${data.aws_subnet.jango.id}"
   name                        = "Hello World"
   ami                         = "${data.aws_ami.jango.id}"
