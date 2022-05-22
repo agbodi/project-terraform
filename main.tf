@@ -104,7 +104,7 @@ module "instance" {
   security_groups             = "${data.aws_security_group.jango.id}"
   subnet                      = "${data.aws_subnet.jango.id}"
   name                        = "Hello World"
-  ami                         = ${data.aws_ami.jango.id}
+  ami                         = "${data.aws_ami.jango.id}"
   ami_owner                   = "587719168126"
   namespace                   = "eg"
   availability_zone           = "us-east-1a"
