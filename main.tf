@@ -90,7 +90,7 @@ data "aws_security_group" "jango" {
 }
 
 
-data "aws_subnet" "default" {
+data "aws_subnet" "jango" {
   filter {
     name   = "tag:Name"
     values = ["dev-subnet-1"] 
