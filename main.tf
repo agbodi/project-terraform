@@ -91,7 +91,7 @@ data "aws_vpc" "jango" {
 
 
 data "aws_security_group" "jango" {
-  id = var.security_group_id
+  id = var.security_group_id[0]
 }
 
 data "aws_subnet" "jango" {
@@ -107,7 +107,7 @@ module "instance" {
   source = "cloudposse/ec2-instance/aws"
   instance_type               = var.instance_type
   vpc_id                      = "${data.aws_vpc.jango.id}"
-  security_groups             = ["var.security_group_id[0]"]
+  security_groups             = ["var.security_group_id"]
   subnet                      = "${data.aws_subnet.jango.id}"
   name                        = "Hello World"
   ami                         = "${data.aws_ami.jango.id}"
