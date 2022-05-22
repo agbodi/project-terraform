@@ -80,34 +80,34 @@ data "aws_ami" "jango" {
 }
 
 
-data "aws_default_vpc" "jango" {
-  id = var.vpc_id
-}
-
-data "aws_default_security_group" "jango" {
-  vpc_id = ${data.aws_default_vpc.jango.id}
-}
-
-
-data "aws_subnet" "default" {
-  filter {
-    name   = "tag:Name"
-    values = ["dev-subnet-1"] 
-  }
-}
-
-module "instance" {
-  source = "cloudposse/ec2-instance/aws"
-  instance_type               = var.instance_type
-  vpc_id                      = ${data.aws_default_vpc.jango.id}
-  security_groups             = ${data.aws_default_security_group.jango.id}
-  subnet                      = ${data.aws_subnet.jango.id}
-  name                        = "Hello World"
-  ami                         = ${data.aws_ami.jango.id}
-  ami_owner                   = "587719168126"
-  namespace                   = "eg"
-  availability_zone           = "us-east-1a"
-  stage                       = "dev"
-}
-
-
+#data "aws_default_vpc" "jango" {
+#  id = var.vpc_id
+#}
+#
+#data "aws_default_security_group" "jango" {
+#  vpc_id = ${data.aws_default_vpc.jango.id}
+#}
+#
+#
+#data "aws_subnet" "default" {
+#  filter {
+#    name   = "tag:Name"
+#    values = ["dev-subnet-1"] 
+#  }
+#}
+#
+#module "instance" {
+#  source = "cloudposse/ec2-instance/aws"
+#  instance_type               = var.instance_type
+#  vpc_id                      = ${data.aws_default_vpc.jango.id}
+#  security_groups             = ${data.aws_default_security_group.jango.id}
+#  subnet                      = ${data.aws_subnet.jango.id}
+#  name                        = "Hello World"
+#  ami                         = ${data.aws_ami.jango.id}
+#  ami_owner                   = "587719168126"
+#  namespace                   = "eg"
+#  availability_zone           = "us-east-1a"
+#  stage                       = "dev"
+#}
+#
+#
