@@ -10,4 +10,8 @@ variable "instance_type" {
  default = "t3.micro"
 }
 
-variable "security_group_id" {}
+variable "security_group_id" {
+  type  = string
+  default = ""
+
+}
