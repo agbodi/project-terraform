@@ -80,10 +80,10 @@ data "aws_ami" "jango" {
 }
 
 
-#data "aws_default_vpc" "jango" {
-#  id = var.vpc_id
-#}
-#
+data "aws_default_vpc" "jango" {
+  default = true
+}
+
 #data "aws_default_security_group" "jango" {
 #  vpc_id = ${data.aws_default_vpc.jango.id}
 #}
