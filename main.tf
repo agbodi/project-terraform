@@ -98,22 +98,19 @@ data "aws_subnet" "jango" {
 }
 
 
-output "aws_security_group" "jango" {
-  name = "${data.aws_security_group.jango.name}"
+
+module "instance" {
+  source = "cloudposse/ec2-instance/aws"
+  instance_type               = var.instance_type
+  vpc_id                      = "${data.aws_vpc.jango.id}"
+  security_groups             = "${data.aws_security_group.jango[0].security_group_id}"
+  subnet                      = "${data.aws_subnet.jango.id}"
+  name                        = "Hello World"
+  ami                         = "${data.aws_ami.jango.id}"
+  ami_owner                   = "587719168126"
+  namespace                   = "eg"
+  availability_zone           = "us-east-1a"
+  stage                       = "dev"
 }
 
-#module "instance" {
-#  source = "cloudposse/ec2-instance/aws"
-#  instance_type               = var.instance_type
-#  vpc_id                      = "${data.aws_vpc.jango.id}"
-#  security_groups             = "${data.aws_security_group.jango.name}"
-#  subnet                      = "${data.aws_subnet.jango.id}"
-#  name                        = "Hello World"
-#  ami                         = "${data.aws_ami.jango.id}"
-#  ami_owner                   = "587719168126"
-#  namespace                   = "eg"
-#  availability_zone           = "us-east-1a"
-#  stage                       = "dev"
-#}
-#
-#
+
