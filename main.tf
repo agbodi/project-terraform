@@ -92,6 +92,10 @@ data "aws_vpc" "jango" {
 
 data "aws_security_group" "jango" {
   id = var.security_group_id
+ filter {
+    name   = "tag:Name"
+    values = ["default"]
+  }
 }
 
 data "aws_subnet" "jango" {
