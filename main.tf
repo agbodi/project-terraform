@@ -1,6 +1,6 @@
 
 
-##module "vpc" {
+#module "vpc" {
 #  source = "cloudposse/vpc/aws"
 #  namespace = "eg"
 #  stage     = "test"
