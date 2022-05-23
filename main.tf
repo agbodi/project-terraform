@@ -81,7 +81,10 @@ data "aws_ami" "jango" {
 
 
 data "aws_vpc" "jango" {
-  default = true
+ filter {
+    name   = "tag:Name"
+    values = ["Dev-vpc"]
+  }
 }
 
 #data "aws_security_group" "jango" {
@@ -93,8 +96,8 @@ data "aws_vpc" "jango" {
 data "aws_security_group" "jango" {
   id = var.security_group_id
  filter {
-    name   = "tag:Name"
-    values = ["default"]
+    name   = "tag:Class"
+    values = ["Dev-sec-group"]
   }
 }
 
@@ -102,7 +105,7 @@ data "aws_subnet" "jango" {
   vpc_id = data.aws_vpc.jango.id
   filter {
     name   = "tag:Name"
-    values = ["default-3"]
+    values = ["dev-subnet-1"]
   }
 }
 
