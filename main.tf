@@ -81,7 +81,6 @@ data "aws_ami" "jango" {
 
 
 data "aws_vpc" "jango" {
-  vpc_id = var.vpc_id
  filter {
     name   = "tag:Name"
     values = ["Dev-vpc"]
