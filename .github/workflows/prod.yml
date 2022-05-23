@@ -1,9 +1,6 @@
 name: "Terraform Deployment"
 on:
   push:
-    branches:
-      - 'main'
-      - 'hotfix*'  
   ## Manual trigger
  # workflow_dispatch:
  # push:
