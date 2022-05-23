@@ -7,7 +7,12 @@ variable "project" {
 
 variable "instance_type" {
   type = string
- default = "t3.micro"
+ default = "t2.micro"
+}
+
+variable "instance_profile" {
+  type = string
+ default = "EC2SSMCore"
 }
 
 variable "security_group_id" {

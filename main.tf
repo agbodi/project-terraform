@@ -123,6 +123,7 @@ module "instance" {
   namespace                   = "eg"
   #availability_zone           = "us-east-1a"
   stage                       = "dev"
+  associate_public_ip_address  = true
 }
 
 
