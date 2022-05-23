@@ -102,7 +102,7 @@ data "aws_subnet" "jango" {
   vpc_id = data.aws_vpc.jango.id
   filter {
     name   = "tag:Name"
-    values = ["default-1"]
+    values = ["default-3"]
   }
 }
 
@@ -118,7 +118,7 @@ module "instance" {
   ami                         = "${data.aws_ami.jango.id}"
   ami_owner                   = "587719168126"
   namespace                   = "eg"
-  availability_zone           = "us-east-1a"
+  #availability_zone           = "us-east-1a"
   stage                       = "dev"
 }
 
